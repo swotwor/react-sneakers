@@ -10,9 +10,9 @@ function App() {
 					</div>
 				</div>
 				<ul className='d-flex'>
-					<li className='mr-30'>
+					<li className='mr-30 d-flex align-center'>
 						<img width={18} height={18} src='img/cart.svg' alt='' />
-						<span>1205 руб.</span>
+						<span className='pl-10'>1205 руб.</span>
 					</li>
 					<li>
 						<img src='img/user.svg' alt='' />
@@ -20,9 +20,16 @@ function App() {
 				</ul>
 			</header>
 			<div className='content p-40'>
-				<h1 className='mb-40'>Все кроссовки</h1>
-				<div className='d-flex'>
-					<div className='card'>
+				<div className='d-flex align-center mb-40 justify-between'>
+					<h1>Все кроссовки</h1>
+					<div className='search-block d-flex'>
+						<img src="img/search.svg" alt="Search" />
+						<input type="text" placeholder='Поиск...' />
+					</div>
+				</div>
+				<div className='d-flex flex-row flex-wrap'>
+					<div className='card m-15'>
+						<img src="img/heart-unliked.svg" alt="Unliked" />
 						<img width={133} height={112} src='img/sneakers/1.jpg' alt='' />
 						<p>Мужские Кроссовки Nike Blazer Mid Suede</p>
 						<div className='d-flex justify-between align-center'>
@@ -35,7 +42,7 @@ function App() {
 							</button>
 						</div>
 					</div>
-					<div className='card'>
+					<div className='card m-15'>
 						<img width={133} height={112} src='img/sneakers/2.jpg' alt='' />
 						<p>Мужские Кроссовки Nike Blazer Mid Suede</p>
 						<div className='d-flex justify-between align-center'>
@@ -48,7 +55,7 @@ function App() {
 							</button>
 						</div>
 					</div>
-					<div className='card'>
+					<div className='card m-15'>
 						<img width={133} height={112} src='img/sneakers/3.jpg' alt='' />
 						<p>Мужские Кроссовки Nike Blazer Mid Suede</p>
 						<div className='d-flex justify-between align-center'>
@@ -61,7 +68,7 @@ function App() {
 							</button>
 						</div>
 					</div>
-					<div className='card'>
+					<div className='card m-15'>
 						<img width={133} height={112} src='img/sneakers/4.jpg' alt='' />
 						<p>Мужские Кроссовки Nike Blazer Mid Suede</p>
 						<div className='d-flex justify-between align-center'>
@@ -74,7 +81,7 @@ function App() {
 							</button>
 						</div>
 					</div>
-					<div className='card'>
+					<div className='card m-15'>
 						<img width={133} height={112} src='img/sneakers/5.jpg' alt='' />
 						<p>Мужские Кроссовки Nike Blazer Mid Suede</p>
 						<div className='d-flex justify-between align-center'>
@@ -87,7 +94,7 @@ function App() {
 							</button>
 						</div>
 					</div>
-					<div className='card'>
+					<div className='card m-15'>
 						<img width={133} height={112} src='img/sneakers/6.jpg' alt='' />
 						<p>Мужские Кроссовки Nike Blazer Mid Suede</p>
 						<div className='d-flex justify-between align-center'>
@@ -100,7 +107,7 @@ function App() {
 							</button>
 						</div>
 					</div>
-					<div className='card'>
+					<div className='card m-15'>
 						<img width={133} height={112} src='img/sneakers/7.jpg' alt='' />
 						<p>Мужские Кроссовки Nike Blazer Mid Suede</p>
 						<div className='d-flex justify-between align-center'>
@@ -113,7 +120,7 @@ function App() {
 							</button>
 						</div>
 					</div>
-					<div className='card'>
+					<div className='card m-15'>
 						<img width={133} height={112} src='img/sneakers/8.jpg' alt='' />
 						<p>Мужские Кроссовки Nike Blazer Mid Suede</p>
 						<div className='d-flex justify-between align-center'>
@@ -126,7 +133,7 @@ function App() {
 							</button>
 						</div>
 					</div>
-					<div className='card'>
+					<div className='card m-15'>
 						<img width={133} height={112} src='img/sneakers/9.jpg' alt='' />
 						<p>Мужские Кроссовки Nike Blazer Mid Suede</p>
 						<div className='d-flex justify-between align-center'>
@@ -139,7 +146,7 @@ function App() {
 							</button>
 						</div>
 					</div>
-					<div className='card'>
+					<div className='card m-15'>
 						<img width={133} height={112} src='img/sneakers/10.jpg' alt='' />
 						<p>Мужские Кроссовки Nike Blazer Mid Suede</p>
 						<div className='d-flex justify-between align-center'>
