@@ -1,17 +1,39 @@
 function App() {
 	return (
 		<div className='wrapper clear'>
-			<div className="overlay">
-				<div className="drawer">
+			<div className='overlay'>
+				<div className='drawer'>
 					<h2>Корзина</h2>
-					<div className="cartItem d-flex align-center">
-						<img width={70} height={70} src="img/sneakers/1.jpg" alt="Sneakers" />
-						<div className='description'>
-							<p className='mb-5'>Мужские Кроссовки Nike Air Max 270</p>
-							<b>12 999 руб.</b>
+					<div className='items'>
+						<div className='cartItem d-flex align-center mb-20'>
+							<img width={70} height={70} src='img/sneakers/1.jpg' alt='Sneakers' />
+							<div className='description'>
+								<p className='mb-5'>Мужские Кроссовки Nike Air Max 270</p>
+								<b>12 999 руб.</b>
+							</div>
+							<img className='removeBtn' src='img/btn-remove.svg' alt='Remove' />
 						</div>
-						<img className='removeBtn' src="img/btn-remove.svg" alt="Remove" />
+						<div className='cartItem d-flex align-center'>
+							<img width={70} height={70} src='img/sneakers/1.jpg' alt='Sneakers' />
+							<div className='description'>
+								<p className='mb-5'>Мужские Кроссовки Nike Air Max 270</p>
+								<b>12 999 руб.</b>
+							</div>
+							<img className='removeBtn' src='img/btn-remove.svg' alt='Remove' />
+						</div>
 					</div>
+					<ul className='cartTotalBlock'>
+						<li className='d-flex justify-between mb-20 mt-20'>
+							<span>Итого: </span>
+							<div></div>
+							<b>21 498 руб. </b>
+						</li>
+						<li className='d-flex justify-between'>
+							<span>Налог 5%: </span>
+							<div></div>
+							<b>1074 руб. </b>
+						</li>
+					</ul>
 				</div>
 			</div>
 			<header className='d-flex justify-between align-center p-40'>
@@ -36,14 +58,14 @@ function App() {
 				<div className='d-flex align-center mb-40 justify-between'>
 					<h1>Все кроссовки</h1>
 					<div className='search-block d-flex'>
-						<img src="img/search.svg" alt="Search" />
-						<input type="text" placeholder='Поиск...' />
+						<img src='img/search.svg' alt='Search' />
+						<input type='text' placeholder='Поиск...' />
 					</div>
 				</div>
 				<div className='d-flex flex-row flex-wrap'>
 					<div className='card m-15'>
 						<div className='favorite'>
-							<img src="img/heart-unliked.svg" alt="Unliked" />
+							<img src='img/heart-unliked.svg' alt='Unliked' />
 						</div>
 						<img width={133} height={112} src='img/sneakers/1.jpg' alt='' />
 						<p>Мужские Кроссовки Nike Blazer Mid Suede</p>

@@ -102,6 +102,8 @@ header {
 }
 
 .drawer {
+	display: flex;
+	flex-direction: column;
 	position: absolute;
 	width: 385px;
 	right: 0;
@@ -144,5 +146,15 @@ header {
 		&:hover {
 			opacity: 1;
 		}
+	}
+}
+
+.cartTotalBlock {
+	div {
+		position: relative;
+		top: -4px;
+		width: 45%;
+		border-bottom: 1px dashed #DFDFDF;
+		padding: 0 5px;
 	}
 }
