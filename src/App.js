@@ -1,4 +1,4 @@
-import Card from './components/Card/Card';
+import Card from './components/Card';
 import Header from './components/Header';
 import Overlay from './components/Overlay';
 
@@ -70,7 +70,14 @@ function App() {
 				</div>
 				<div className='d-flex flex-row flex-wrap'>
 					{arr.map((item, index) => (
-						<Card name={item.name} price={item.price} key={index} foto={item.foto} />
+						<Card
+							name={item.name}
+							price={item.price}
+							key={index}
+							foto={item.foto}
+							onFavorite={() => console.log('ADD TO FAVORITE')} 
+							onPlus={() => console.log('ADD TO CARD')}
+						/>
 					))}
 				</div>
 			</div>

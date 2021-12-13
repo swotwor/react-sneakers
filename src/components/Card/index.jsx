@@ -1,9 +1,16 @@
+import React from 'react';
 import css from './Card.module.scss';
 
-export default function Card({ name, price, foto }) {
+export default function Card({ name, price, foto, onFavorite, onPlus }) {
+	const [state, setState] = React.useState(false);
+
+	const changeAdd = () => {
+		setState(!state);
+	};
+
 	return (
 		<div className={css.card}>
-			<div className={css.favorite}>
+			<div className={css.favorite} onClick={onFavorite}>
 				<img src='img/heart-unliked.svg' alt='Unliked' />
 			</div>
 			<img width={133} height={112} src={foto} alt='Foto' />
@@ -13,9 +20,10 @@ export default function Card({ name, price, foto }) {
 					<span>Цена:</span>
 					<b>{price} руб.</b>
 				</div>
-				<button className={css.button} onClick={() => alert(name)}>
-					<img width={11} height={11} src='img/plus.svg' alt='Plus' />
-				</button>
+				<img
+					className={css.addButton}
+					onClick={changeAdd}
+					src={state ? 'img/plus.svg' : 'img/unplus.svg '} alt='Plus' />
 			</div>
 		</div>
 	);
