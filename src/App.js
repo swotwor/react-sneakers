@@ -1,65 +1,25 @@
+import React from 'react';
 import Card from './components/Card';
 import Header from './components/Header';
 import Overlay from './components/Overlay';
+const axios = require('axios').default;
 
-const arr = [
-	{
-		name: 'Мужские Кроссовки Nike Blazer Mid Suede',
-		price: 12999,
-		foto: 'img/sneakers/1.jpg',
-	},
-	{
-		name: 'Мужские Кроссовки Nike Air Max 270',
-		price: 12999,
-		foto: 'img/sneakers/2.jpg',
-	},
-	{
-		name: 'Мужские Кроссовки Nike Blazer Mid',
-		price: 8499,
-		foto: 'img/sneakers/3.jpg',
-	},
-	{
-		name: 'Кроссовки Puma X Aka Boku Future Rider',
-		price: 8999,
-		foto: 'img/sneakers/4.jpg',
-	},
-	{
-		name: 'Мужские Кроссовки Under Armour Curry 8',
-		price: 15199,
-		foto: 'img/sneakers/5.jpg',
-	},
-	{
-		name: 'Мужские Кроссовки Nike Kyrie 7',
-		price: 11299,
-		foto: 'img/sneakers/6.jpg',
-	},
-	{
-		name: 'Мужские Кроссовки Jordan Air Jordan 11',
-		price: 10799,
-		foto: 'img/sneakers/7.jpg',
-	},
-	{
-		name: 'Мужские Кроссовки Nike LeBron XVIII',
-		price: 16499,
-		foto: 'img/sneakers/8.jpg',
-	},
-	{
-		name: 'Мужские Кроссовки Nike Lebron XVIII Low',
-		price: 13999,
-		foto: 'img/sneakers/9.jpg',
-	},
-	{
-		name: 'Мужские Кроссовки Nike Blazer Mid Suede',
-		price: 8499,
-		foto: 'img/sneakers/10.jpg',
-	},
-];
+// const arr = [];
 
 function App() {
+	const [items, setItems] = React.useState([]);
+	const [cardOpened, setCardOpened] = React.useState(false);
+
+	React.useEffect(() => {
+		axios.get('https://61b79b0364e4a10017d18bc8.mockapi.io/shopItems').then(function (response) {
+			setItems(response.data);
+		});
+	}, []);
+
 	return (
 		<div className='wrapper clear'>
-			<Overlay />
-			<Header />
+			{cardOpened ? <Overlay onClickCloseBtn={() => setCardOpened(!cardOpened)} /> : null}
+			<Header onClickCard={() => setCardOpened(!cardOpened)} />
 			<div className='content p-40'>
 				<div className='d-flex align-center mb-40 justify-between'>
 					<h1>Все кроссовки</h1>
@@ -69,13 +29,13 @@ function App() {
 					</div>
 				</div>
 				<div className='d-flex flex-row flex-wrap'>
-					{arr.map((item, index) => (
+					{items.map((item, index) => (
 						<Card
 							name={item.name}
 							price={item.price}
 							key={index}
 							foto={item.foto}
-							onFavorite={() => console.log('ADD TO FAVORITE')} 
+							onFavorite={() => console.log('ADD TO FAVORITE')}
 							onPlus={() => console.log('ADD TO CARD')}
 						/>
 					))}
