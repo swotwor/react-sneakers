@@ -1,6 +1,6 @@
 import React from 'react';
 //  style={{ display: 'none' }}
-export default function Overlay({ onClickCloseBtn }) {
+export default function Overlay({ onClickCloseBtn, items, onRemove }) {
 	return (
 		<div className='overlay'>
 			<div className='drawer'>
@@ -9,22 +9,16 @@ export default function Overlay({ onClickCloseBtn }) {
 					<img className='removeBtn cu-p' src='img/btn-remove.svg' alt='Remove' onClick={() => onClickCloseBtn()} />
 				</h2>
 				<div className='items'>
-					<div className='cartItem d-flex align-center mb-20'> 
-						<img width={70} height={70} src='img/sneakers/1.jpg' alt='Sneakers' />
-						<div className='description'>
-							<p className='mb-5'>Мужские Кроссовки Nike Air Max 270</p>
-							<b>12 999 руб.</b>
+					{items.map((item, index) => (
+						<div className='cartItem d-flex align-center mb-20' key={index}>
+							<img width={70} height={70} src={item.foto} alt='Sneakers' />
+							<div className='description'>
+								<p className='mb-5'>{item.name}</p>
+								<b>{item.price} руб.</b>
+							</div>
+							<img className='removeBtn++ cu-p' src='img/btn-remove.svg' alt='Remove' onClick={() => onRemove(item.id)} />
 						</div>
-						<img className='removeBtn' src='img/btn-remove.svg' alt='Remove' />
-					</div>
-					<div className='cartItem d-flex align-center mb-20'>
-						<img width={70} height={70} src='img/sneakers/1.jpg' alt='Sneakers' />
-						<div className='description'>
-							<p className='mb-5'>Мужские Кроссовки Nike Air Max 270</p>
-							<b>12 999 руб.</b>
-						</div>
-						<img className='removeBtn' src='img/btn-remove.svg' alt='Remove' />
-					</div>
+					))}
 				</div>
 				<div className='cartTotalBlock'>
 					<ul>

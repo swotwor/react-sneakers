@@ -6,6 +6,7 @@ export default function Card({ name, price, foto, onFavorite, onPlus }) {
 
 	const changeAdd = () => {
 		setState(!state);
+		onPlus({name, price, foto});
 	};
 
 	return (
