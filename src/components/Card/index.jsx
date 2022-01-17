@@ -3,16 +3,22 @@ import css from './Card.module.scss';
 
 export default function Card({ name, price, foto, onFavorite, onPlus }) {
 	const [state, setState] = React.useState(false);
+	const [stateFavorite, setStateFavorite] = React.useState(false);
 
 	const changeAdd = () => {
-		setState(!state);
 		onPlus({name, price, foto});
+		setState(!state);
+	};
+
+	const changeFavorite = () => {
+		onFavorite({name, price, foto});
+		setStateFavorite(!stateFavorite);
 	};
 
 	return (
 		<div className={css.card}>
-			<div className={css.favorite} onClick={onFavorite}>
-				<img src='img/heart-unliked.svg' alt='Unliked' />
+			<div className={css.favorite}>
+				<img onClick={changeFavorite} src={stateFavorite ? 'img/heart-liked.svg' : 'img/heart-unliked.svg'} alt='Unliked' />
 			</div>
 			<img width={133} height={112} src={foto} alt='Foto' />
 			<p>{name}</p>

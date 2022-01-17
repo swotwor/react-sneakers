@@ -122,6 +122,15 @@ header {
 	}
 }
 
+.empty_cart {
+	display: block;
+	margin: 0 auto;
+}
+
+.empty_cart_title {
+	text-align: center;
+}
+
 .cartTotalBlock {
 	div {
 		position: relative;
@@ -161,4 +170,13 @@ header {
 
 .items {
 	height: 100%;
+}
+
+.icon_favorite {
+	margin-right: 30px;
+	cursor: pointer;
+}
+
+.icon_user {
+	cursor: pointer;
 }
