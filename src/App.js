@@ -23,12 +23,17 @@ function App() {
 		axios.post('https://61b79b0364e4a10017d18bc8.mockapi.io/cart', obj);
 		setCardItems((prev) => [...prev, obj]);
 	};
-
+//////////////////////////////////////////////////////////
 	const onAddToFavorite = (obj) => {
-		axios.post('https://61b79b0364e4a10017d18bc8.mockapi.io/favorites', obj);
-		setFavoriteCardItems((prev) => [...prev, obj]);
+		if (favoriteItems.find(favObj => favObj.id === obj.id)) {
+			axios.delete(`https://61b79b0364e4a10017d18bc8.mockapi.io/favorites/${obj.id}`);
+			setFavoriteCardItems((prev) => prev.filter((item) => item.id !== obj.id));
+		} else {
+			axios.post('https://61b79b0364e4a10017d18bc8.mockapi.io/favorites', obj);
+			setFavoriteCardItems((prev) => [...prev, obj]);
+		}
 	};
-
+/////////////////////////////////////////////////////////
 	const removeItemInCard = (id) => {
 		setCardItems([cardItems.filter((item) => item.id !== id)]);
 	};
@@ -54,7 +59,8 @@ function App() {
 			) : null}
 			<Header onClickCard={() => setCardOpened(!cardOpened)} />
 			<Routes>
-				<Route path='/' exact element={
+				<Route path='/' exact
+					element={
 						<Home
 							searchValue={searchValue}
 							onChangeSearchValue={onChangeSearchValue}
@@ -64,7 +70,14 @@ function App() {
 						/>
 					}
 				></Route>
-				<Route path='/favorites' exact element={<Favorites items={favoriteItems}/>}></Route>
+				<Route path='/favorites' exact
+					element={
+						<Favorites
+							items={favoriteItems}
+							onAddToFavorite={onAddToFavorite}
+						/>
+					}>
+				</Route>
 			</Routes>
 		</div>
 	);

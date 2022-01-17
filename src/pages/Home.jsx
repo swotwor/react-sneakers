@@ -2,6 +2,7 @@ import React from 'react';
 import Card from '../components/Card';
 
 export default function Home({ searchValue, onChangeSearchValue, items, onAddToFavorite, onAddToCard }) {
+	console.log(items);
 	return (
 		<div className='content p-40'>
 			<div className='d-flex align-center mb-40 justify-between'>

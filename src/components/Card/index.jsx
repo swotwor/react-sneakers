@@ -1,9 +1,9 @@
 import React from 'react';
 import css from './Card.module.scss';
 
-export default function Card({ name, price, foto, onFavorite, onPlus }) {
+export default function Card({ name, price, foto, key, onFavorite, onPlus, favorited }) {
 	const [state, setState] = React.useState(false);
-	const [stateFavorite, setStateFavorite] = React.useState(false);
+	const [stateFavorite, setStateFavorite] = React.useState(favorited);
 
 	const changeAdd = () => {
 		onPlus({name, price, foto});
@@ -11,7 +11,7 @@ export default function Card({ name, price, foto, onFavorite, onPlus }) {
 	};
 
 	const changeFavorite = () => {
-		onFavorite({name, price, foto});
+		onFavorite({name, price, foto, key});
 		setStateFavorite(!stateFavorite);
 	};
 
